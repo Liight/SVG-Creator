@@ -77,9 +77,9 @@ const convertShapeToSVGAndAddToCollection = (state, action) => {
     if(action.shapesDisplayShouldBeCleared){ return state; }
     console.log('reducer action', action)
     const polylineHTML = (
-        <polyline
+        <path
             key={action.shape.key}
-            points={action.shape.points}
+            d={"M"+action.shape.points}
             fill={action.shape.fill}
             stroke={action.shape.stroke}
             strokeWidth={action.shape.strokeWidth}

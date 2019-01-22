@@ -15,7 +15,6 @@ export class Canvas extends Component {
 
   componentDidMount() {
     this.elem = ReactDOM.findDOMNode(this);
-    // console.log(this.elem.offsetTop);
     this.updateCanvas();
   }
 
@@ -33,8 +32,14 @@ export class Canvas extends Component {
   clearCanvas() {
     const canvas = document.getElementById('can');
     const context = canvas.getContext("2d");
-    this.setState({ recordedShapePath: [] });
+    this.setState({ 
+      recordedShapePath: [], 
+      mouseIsDown: false,
+      startedDrawing: false,
+      record: false,
+    });
     context.clearRect(0, 0, 500, 500);
+    this.ctx.closePath();
   }
 
   getMouseCoordinates(event) {
@@ -47,28 +52,26 @@ export class Canvas extends Component {
   }
 
   onMouseDown(event) {
-    // console.log(mouseCoords)
-    this.setState({ mouseIsDown: true });
+    this.setState({ mouseIsDown: true, startedDrawing: true, record: true });
+    let mouseCoords = this.getMouseCoordinates(event);
+    this.ctx.moveTo(mouseCoords.x, mouseCoords.y);
+    this.ctx.beginPath();
   }
 
   onMouseMove(event) {
     let mouseCoords = this.getMouseCoordinates(event);
-    // console.log(mouseCoords);
     if (this.state.mouseIsDown) {
       if (this.state.startedDrawing) {
         this.ctx.lineTo(mouseCoords.x, mouseCoords.y);
         this.ctx.stroke();
       } else {
-        this.ctx.beginPath();
         this.ctx.moveTo(mouseCoords.x, mouseCoords.y);
-        this.setState({ startedDrawing: true, record: true });
       }
       if (this.state.record) {
         let currentCoords = this.recordPath(mouseCoords);
         this.setState({
           recordedShapePath: [...this.state.recordedShapePath, currentCoords]
         });
-        //console.log(this.state.recordedShapePath)
       }
     }
   }
@@ -79,6 +82,7 @@ export class Canvas extends Component {
 
   onMouseUp(event) {
     if (this.state.record) {
+      this.setState({ recordedShapePath: [...this.state.recordedShapePath, "M "] });
       this.mapPointsToValidSVGPolylineString([...this.state.recordedShapePath]);
     }
     if (this.state.mouseIsDown) {
@@ -88,7 +92,6 @@ export class Canvas extends Component {
         record: false
       });
     }
-    //this.clearCanvas();
   }
 
   mapPointsToValidSVGPolylineString(pointsArray) {
