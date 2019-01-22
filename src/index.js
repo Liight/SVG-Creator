@@ -9,12 +9,14 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import shapeReducer from './store/reducers/shapes';
 import canvasReducer from './store/reducers/canvas';
+import colorsReducer from './store/reducers/colors';
 
 
 // Combine reducers
 const rootReducer = combineReducers({
     shapes: shapeReducer,
-    canvas: canvasReducer
+    canvas: canvasReducer,
+    colors: colorsReducer
 });
 
 // Create store

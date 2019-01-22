@@ -107,7 +107,7 @@ export class Canvas extends Component {
       key: makeKey,
       points: pointsString,
       fill: "none",
-      stroke: "purple",
+      stroke: this.props.currentColor,
       strokeWidth: 2
     };
     this.props.onShapeAdded(shape);
@@ -132,7 +132,8 @@ export class Canvas extends Component {
 
 const mapStateToProps = state => {
   return {
-    canvasShouldBeClear: state.canvas.canvasShouldBeClear
+    canvasShouldBeClear: state.canvas.canvasShouldBeClear,
+    currentColor: state.colors.currentColor
   }
 }
 

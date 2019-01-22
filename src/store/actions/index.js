@@ -12,3 +12,6 @@ export {
     clearCanvas,
     readyCanvasForDrawing
 } from './canvas';
+export {
+    changeColors
+} from './colors';

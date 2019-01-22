@@ -39,8 +39,8 @@ export const convertSvgToXml = (svgElement, type) => {
         let fill = ' fill="'+svgElement.props.fill+'"';
         let stroke = ' stroke="'+svgElement.props.stroke+'"';
         let strokeWidth = ' strokeWidth="'+svgElement.props.strokeWidth+'"';
-        let height = ' height="500"';
-        let width = ' width="500"';
+        // let height = ' height="500"';
+        // let width = ' width="500"';
 
         doc = svgBegin+shapeBegin+points+fill+stroke+strokeWidth+shapeEnd+svgEnd
     }
