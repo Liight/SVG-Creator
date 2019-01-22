@@ -1,0 +1,12 @@
+.canvasContainer{
+    display: flex;
+    text-align:center;
+    flex-flow:column;
+    width: 500px;
+    margin: 10px auto 10px auto;
+}
+
+.canvasContainer button{
+    margin: 5px;
+    width: 80%;
+}

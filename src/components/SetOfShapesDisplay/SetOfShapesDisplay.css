@@ -1,0 +1,12 @@
+#setOfShapesDisplayDiv {
+    width: 500px;
+    height: 500px;
+    border: 1px solid salmon;
+    flex-flow: row;
+    margin: auto;
+}
+
+svg{
+    border: 1px solid black;
+    margin: 5px;
+}

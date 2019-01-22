@@ -1,28 +1,35 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+
+import "./App.css";
+// import ShapesDisplay from "./components/ShapesDisplay/ShapesDisplay";
+import ShapesDisplayContainer from "./containers/ShapesDisplayContainer/ShapesDisplayContainer";
+import SetOfShapesDisplayContainer from "./containers/SetOfShapesDisplayContainer/SetOfShapesDisplayContainer";
+import CanvasContainer from "./containers/CanvasContainer/CanvasContainer";
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <CanvasContainer />
+        <ShapesDisplayContainer />
+        <SetOfShapesDisplayContainer />
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    addedShapes: state.addedShapes
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {};
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);
