@@ -12,6 +12,7 @@ class ShapesDisplayContainer extends Component {
     return (
       <div className="shapesDisplayContainer">
       <div>
+      <p><b>SVG Element Render</b></p>
       <button onClick={this.props.onClearShapesDisplay}>Clear SVG</button>
         <button
           disabled={!this.props.canSaveShape}

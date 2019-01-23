@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, cloneElement } from "react";
 import { connect } from "react-redux";
 
 import * as actions from "../../store/actions/index";
@@ -24,22 +24,31 @@ prepareShapeForDownloadAndExecuteDownload(e){
       shapeSetToRender = [...this.props.shapeSet];
     }
 
+    // shapeSetToRender = shapeSetToRender.map((shp, i) => {
+    //   return cloneElement(shp, { key: Math.random().toString() });
+    // });
+
     return (
       <div id="setOfShapesDisplayDiv">
-          {shapeSetToRender.map((shp, i) => {
-            console.log('shape saved to set and on display', shp)
+          {shapeSetToRender.map(shapeSet => {
+
+              console.log('shape saved to set and on display', shapeSet)
               return (
                   <svg 
                     height={100} 
                     width={100} 
                     viewBox="0 0 500 500" 
-                    key={shp.key}
-                    shapekey={shp.key} 
+                    key={Math.random()}
+                    shapekey={shapeSet[shapeSet.length-1].key} 
                     // onClick={(event) => this.removeShapeFromSet(event)} 
                     onClick={(event) => this.prepareShapeForDownloadAndExecuteDownload(event)}>
-                    {shp}
+                    {shapeSet.map((shp, i) => {
+                      // console.log('individual shape ', shp)
+                      return cloneElement(shp,{ key: i });
+                    })}
                   </svg>
               );
+
           })}
       </div>
     );

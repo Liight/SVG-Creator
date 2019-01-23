@@ -6,7 +6,8 @@ export {
     saveShapeToSetOfShapes,
     enableSaveShape,
     removeShapeFromSetOfShapes,
-    downloadShape
+    downloadShape,
+    deleteAllShapes
 } from './shapes';
 export {
     clearCanvas,

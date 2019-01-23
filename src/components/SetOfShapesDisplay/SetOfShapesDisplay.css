@@ -3,7 +3,7 @@
     height: 500px;
     border: 1px solid salmon;
     flex-flow: row;
-    margin: auto;
+    margin: 10px auto 10px auto;
 }
 
 svg{

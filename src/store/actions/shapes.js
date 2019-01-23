@@ -10,7 +10,6 @@ export const convertShapeToSVGAndAddToCollection = shape => {
 export const clearShapesDisplay = () => {
     return {
         type: actionTypes.CLEAR_SHAPES_DISPLAY,
-        shapesDisplayShouldBeCleared: true
     }
 };
 
@@ -51,5 +50,11 @@ export const downloadShape = (key) => {
     return {
         type: actionTypes.DOWNLOAD_SHAPE,
         shapeKey: key
+    }
+}
+
+export const deleteAllShapes = () => {
+    return {
+        type: actionTypes.DELETE_ALL_SHAPES
     }
 }

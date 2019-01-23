@@ -14,38 +14,66 @@ export const convertSvgToXml = (svgElement, type) => {
 
     let doc = "";
 
-    if(type === "xml"){
-        let xmlVersion = '<?xml version="1.0" encoding="UTF-8"?>';
-        let docType = '<!DOCTYPE svg>';
-        let svgBegin = '<svg width="500px" height="500px" xmlns="http://www.w3.org/2000/svg">';
-        let svgEnd = '</svg>';
-        let shapeBegin = '<polyline>';
-        let shapeEnd = '</polyline>';
-        let points = '<points>'+svgElement.props.points+'</points>';
-        let fill = '<fill>'+svgElement.props.fill+'</fill>';
-        let stroke = '<stroke>'+svgElement.props.stroke+'</stroke>';
-        let strokeWidth = '<strokeWidth>'+svgElement.props.strokeWidth+'</strokeWidth>';
+    // if(type === "xml"){
+    //     let xmlVersion = '<?xml version="1.0" encoding="UTF-8"?>';
+    //     let docType = '<!DOCTYPE svg>';
+    //     let svgBegin = '<svg width="500px" height="500px" xmlns="http://www.w3.org/2000/svg">';
+    //     let svgEnd = '</svg>';
+    //     let shapeBegin = '<polyline>';
+    //     let shapeEnd = '</polyline>';
+    //     let points = '<points>'+svgElement.props.points+'</points>';
+    //     let fill = '<fill>'+svgElement.props.fill+'</fill>';
+    //     let stroke = '<stroke>'+svgElement.props.stroke+'</stroke>';
+    //     let strokeWidth = '<strokeWidth>'+svgElement.props.strokeWidth+'</strokeWidth>';
 
-        doc = xmlVersion+docType+svgBegin+shapeBegin+points+fill+stroke+strokeWidth+shapeEnd+svgEnd
-    }
+    //     doc = xmlVersion+docType+svgBegin+shapeBegin+points+fill+stroke+strokeWidth+shapeEnd+svgEnd
+    // }
 
-    if (type ==="svg"){
+    // if (type ==="svg"){
+
+    //     let svgBegin = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">';
+    //     let svgEnd = '</svg>';
+    //     let shapeBegin = '<polyline';
+    //     let shapeEnd = '/>';
+    //     let points = ' points="'+svgElement.props.points+'"';
+    //     let fill = ' fill="'+svgElement.props.fill+'"';
+    //     let stroke = ' stroke="'+svgElement.props.stroke+'"';
+    //     let strokeWidth = ' strokeWidth="'+svgElement.props.strokeWidth+'"';
+    //     // let height = ' height="500"';
+    //     // let width = ' width="500"';
+
+    //     doc = svgBegin+shapeBegin+points+fill+stroke+strokeWidth+shapeEnd+svgEnd
+    // }
+
+    if(type === "svgSet"){
 
         let svgBegin = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">';
         let svgEnd = '</svg>';
-        let shapeBegin = '<polyline';
+        let shapeBegin = '<path';
         let shapeEnd = '/>';
-        let points = ' points="'+svgElement.props.points+'"';
-        let fill = ' fill="'+svgElement.props.fill+'"';
-        let stroke = ' stroke="'+svgElement.props.stroke+'"';
-        let strokeWidth = ' strokeWidth="'+svgElement.props.strokeWidth+'"';
-        // let height = ' height="500"';
-        // let width = ' width="500"';
 
-        doc = svgBegin+shapeBegin+points+fill+stroke+strokeWidth+shapeEnd+svgEnd
+        let shapesInSvg = [];
+        shapesInSvg = svgElement[0].map((elem, i) => {
+            // console.log('inside mapping', elem);
+
+            let d = ' d="'+elem.props.d+'"';
+            let fill = ' fill="'+elem.props.fill+'"';
+            let stroke = ' stroke="'+elem.props.stroke+'"';
+            let strokeWidth = ' strokeWidth="'+elem.props.strokeWidth+'"';
+
+            let shape = shapeBegin+d+fill+stroke+strokeWidth+shapeEnd;
+
+            return shape;
+
+        });
+
+        shapesInSvg = shapesInSvg.join("");
+        //console.log('shapesInSvg', shapesInSvg)
+        doc = svgBegin+shapesInSvg+svgEnd;
+
     }
 
-    console.log('doc', doc);
+    // console.log('doc', doc);
     return doc;
 
 };

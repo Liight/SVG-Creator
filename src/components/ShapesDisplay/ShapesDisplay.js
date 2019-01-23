@@ -12,27 +12,33 @@ class shapesDisplay extends Component {
       this.clearShapeDisplay()
     }
     if(this.props.saveThisShape){
-      if(this.props.addedShapes !== null){
+      //if(this.props.addedShapes !== null){
         console.log('attempting to save shape')
-        this.props.onSaveShapeToSetOfShapes(this.props.addedShapes[this.props.addedShapes.length-1]);
-      } 
+        this.props.onSaveShapeToSetOfShapes(this.props.addedShapes); //
+      //} 
       
     }
-    if(document.getElementById('svgField').childNodes.length > 0){
-      if(!this.props.canSaveShape){
-        this.props.onEnableSaveShape();
-      }
-    }
+    // terrible idea!
+    // if(document.getElementById('svgField').childNodes.length > 0){
+    //   if(!this.props.canSaveShape){
+    //     this.props.onEnableSaveShape();
+    //   }
+    // }
+
   }
 
   clearShapeDisplay(){
-    let svgField = document.getElementById('svgField');
-    let svgFieldChildren = svgField.childNodes;
-    if(svgFieldChildren.length > 0){
-      console.log('childnodes', svgFieldChildren)
-      svgField.removeChild(svgFieldChildren);
-    }
-    console.log("about to dispatch onReadyShapesDisplay")
+    // Remove all child nodes from the SVG Element Renderer
+    let svgField = document.getElementById('svgFieldContainingSvgElements');
+    if(svgField.hasChildNodes()){
+      let svgFieldChildren = svgField.childNodes;
+      console.log('childNodes', svgFieldChildren)
+      while(svgField.firstChild){
+        svgField.removeChild(svgField.firstChild);
+      }
+      
+    };
+    // console.log("about to dispatch onReadyShapesDisplay")
     this.props.onReadyShapesDisplay();
   };
 
@@ -41,21 +47,23 @@ class shapesDisplay extends Component {
     if (this.props.addedShapes !== null) {
       shapes = this.props.addedShapes;
       // console.log('shapes attempted update')
+      shapes.map((shp, i) => {
+        // console.log(cloneElement(shp))
+        return cloneElement(shp, { key: Math.random().toString() });
+      })
     }
     console.log("shapesDisplay render - shapes", shapes);
 
     return (
       <div>
         <svg
-          id="svgField"
+          id="svgFieldContainingSvgElements"
           className="shapeContainer"
           height={"500"}
           width={"500"}
           viewBox="0 0 500 500"
         >
-          {shapes.map((shp, i) => {
-            return cloneElement(shp, { props: { key: Math.random().toString() }  });
-          })}
+          {shapes}
         </svg>
       </div>
     );

@@ -16,6 +16,7 @@ const initialState = {
 }
 
 const changeColor = (state, action) => {
+    console.log(" inside change color reducer")
     return updateObject(state, { currentColor: action.color });
 }
 

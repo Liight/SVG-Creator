@@ -23,47 +23,39 @@ const initialState = {
 }
 
 const enableSaveShape = (state, action) => {
-    return updateObject(state, { canSaveShape: true })
+    return updateObject(state, { canSaveShape: true, saveThisShape: false })
 }
 
 const setShapeToBeSaved = (state, action) => {
         console.log('inside setShapeToBeSaved reducer')
-        return updateObject(state, { saveThisShape: true });
+        return updateObject(state, { saveThisShape: true, canSaveShape: false });
 } ;
 
 const saveShapeToSetOfShapes = (state, action) => {
-    // Check for a duplicate key
-    console.log('inside saveShapeToSetOfShapes')
-    let check = [];
-    check = state.shapeSet.filter(shp => shp.key === action.shape.key);
-    if(check.length > 0){
-        console.log('check', check.length, check, action.shape.key)
-        check = [];
-        return state;
-    };
+    console.log('inside saveShapeToSetOfShapes', action, 'previous state.shapeSet', state.shapeSet)
     return updateObject(state, { 
         shapeSet: [...state.shapeSet, action.shape],
-        saveThisShape: false
+        saveThisShape: false,
+        canSaveShape: false
     });
+    
 }
 
 const removeShapeFromSetOfShapes = (state, action) => {
-    console.log('inside removeShapeFromSetOfShapes, key: ' + action.shapeKey)
-    const newShapeSet = state.shapeSet.filter(shp => shp.key !== action.shapeKey )
-    return updateObject(state, { shapeSet: newShapeSet })
+    // console.log('inside removeShapeFromSetOfShapes, key: ' + action.shapeKey)
+    // const newShapeSet = state.shapeSet.filter(shp => shp.key !== action.shapeKey )
+    // return updateObject(state, { shapeSet: newShapeSet })
+    return state;
 }
 
 const clearShapesDisplay = (state, action) => {
     console.log("in clearShapesDisplay reducer")
-    if(action.shapesDisplayShouldBeCleared){
         return updateObject(state, { 
             shapesDisplayShouldBeCleared: true ,
             addedShapes: null,
             canSaveShape: false
-        })
-    }
-    return state;
-}
+    })
+};
 
 const readyShapesDisplayForShapes = (state, action) => {
     console.log("readyShapesDisplayForShapes reached")
@@ -76,7 +68,7 @@ const readyShapesDisplayForShapes = (state, action) => {
 const convertShapeToSVGAndAddToCollection = (state, action) => {
     if(action.shapesDisplayShouldBeCleared){ return state; }
     console.log('reducer action', action)
-    const polylineHTML = (
+    const pathHTML = (
         <path
             key={action.shape.key}
             d={"M"+action.shape.points}
@@ -87,12 +79,14 @@ const convertShapeToSVGAndAddToCollection = (state, action) => {
         // With this we can add a back button to load the previous shape state
         if(state.addedShapes !== null){
             let updatedState = {
-                addedShapes: [...state.addedShapes, polylineHTML]
+                addedShapes: [...state.addedShapes, pathHTML],
+                canSaveShape: true
             }
             return updateObject(state, updatedState);
         } else {
             let updatedState = {
-                addedShapes: [polylineHTML]
+                addedShapes: [pathHTML],
+                canSaveShape: true
             }
             return updateObject(state, updatedState);
         }
@@ -103,18 +97,28 @@ const convertShapeToSVGAndAddToCollection = (state, action) => {
 
 const downloadShape = (state, action) => {
     console.log('inside download shape');
-        // Check for a duplicate key
+        // Check for the correct set of shapes
         let selectedShape = [];
-        selectedShape = state.shapeSet.filter(shp => shp.key === action.shapeKey);
-        console.log('key check', action.shapeKey, selectedShape)
+        try{
+            selectedShape = state.shapeSet.filter((subArr) => subArr[subArr.length-1].key === action.shapeKey);
+        }
+        catch(err){ console.log('error', err, ' patience is a virtue, please try again') }
+
+        console.log('key check', action.shapeKey);
+        console.log('selected shape', selectedShape);
+        // Assumes checks are finished before this point
         if(selectedShape.length > 0){
-            let dlShapeAsXml = utilities.convertSvgToXml(selectedShape[0], "svg");
+            let dlShapeAsXml = utilities.convertSvgToXml(selectedShape, "svgSet");
             utilities.fileFactory(dlShapeAsXml);
             selectedShape = [];
             return state;
         };
         return state;
 };
+
+const deleteAllShapes = (state, action) => {
+    return updateObject(state, { shapeSet: [] })
+}
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
@@ -126,6 +130,7 @@ const reducer = (state = initialState, action) => {
         case actionTypes.SAVE_SHAPE_TO_SET_OF_SHAPES: return saveShapeToSetOfShapes(state, action);
         case actionTypes.REMOVE_SHAPE_FROM_SET_OF_SHAPES: return removeShapeFromSetOfShapes(state, action)
         case actionTypes.DOWNLOAD_SHAPE: return downloadShape(state, action);
+        case actionTypes.DELETE_ALL_SHAPES: return deleteAllShapes(state, action);
         default: return state;
     }
 };
