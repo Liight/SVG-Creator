@@ -1,3 +1,28 @@
+## Installation and running the app
+
+1) Download the repo to your computer and run the package installer:
+
+e.g for npm run: npm install
+
+2) now run the app
+
+e.g for npm: npm start
+
+The app will start in your browser and you will be able to draw on the canvas.
+- You can clear the canvas
+
+## Drawing's rendered on the canvas will be copied to the SVG renderer.
+- You can clear the SVG renderer
+- You can save the file to a set of files you've created in the browser
+
+## Created Files Set:
+- You will see the saved scg images appear below the renderer.
+- Clicking these images will download the SVG image as XML-SVG in your download folder
+
+## Viewing your SVG
+- Double click the SVG file you downloaded and it should render in the browser or open in your application of choice
+
+## ### ##
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
