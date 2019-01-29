@@ -29,7 +29,8 @@ class colorOptionsPanel extends Component {
     return (
       <div>
         <p><b>Choose Colors</b></p>
-        {buttonDisplay}
+        <div className={"canvasButtonGroup"}>{buttonDisplay}</div>
+        
       </div>
     );
   }

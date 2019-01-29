@@ -1,0 +1,28 @@
+.setOfShapesDisplayContainer{
+    display: flex;
+    text-align:center;
+    align-items: center;
+    flex-flow:column;
+    width: 500px;
+    margin: 10px auto 10px auto;
+}
+
+.instructions{
+    margin: 5px;
+}
+
+.setOfShapesDisplayContainer button{
+    margin: 5px;
+    width: 80%;
+    border-radius: 8px;
+    text-transform: uppercase;
+    padding: 1px;
+    box-shadow: 0px 12px 10px -10px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+    transition: all ease-in-out 300ms;
+}
+.setOfShapesDisplayContainer button:hover {
+  box-shadow: 0px 37px 20px -20px rgba(0, 0, 0, 0.2);
+  -webkit-transform: translate(0px, -2px) scale(1.1);
+          transform: translate(0px, -2px) scale(1.1);
+}

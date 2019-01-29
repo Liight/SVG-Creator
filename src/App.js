@@ -11,9 +11,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <CanvasContainer />
-        <ShapesDisplayContainer />
-        <SetOfShapesDisplayContainer />
+        <CanvasContainer className={CanvasContainer}/>
+        <ShapesDisplayContainer className={ShapesDisplayContainer}/>
+        <SetOfShapesDisplayContainer className={SetOfShapesDisplayContainer}/>
       </div>
     );
   }

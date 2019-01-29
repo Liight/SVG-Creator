@@ -4,23 +4,24 @@ import { connect } from "react-redux";
 import ShapesDisplay from "../../components/ShapesDisplay/ShapesDisplay";
 import * as actions from "../../store/actions/index";
 
-import './ShapesDisplayContainer.css';
+import "./ShapesDisplayContainer.css";
 
-class ShapesDisplayContainer extends Component {  
-
+class ShapesDisplayContainer extends Component {
   render() {
     return (
       <div className="shapesDisplayContainer">
-      <div>
-      <p><b>SVG Element Render</b></p>
-      <button onClick={this.props.onClearShapesDisplay}>Clear SVG</button>
-        <button
-          disabled={!this.props.canSaveShape}
-          onClick={this.props.onSetShapeToBeSaved}
-        >
-          Save Shape To Set
-        </button>
-      </div>
+        <div>
+          <p>
+            <b>SVG Element Render</b>
+          </p>
+          <button onClick={this.props.onClearShapesDisplay}>Clear SVG</button>
+          <button
+            disabled={!this.props.canSaveShape}
+            onClick={this.props.onSetShapeToBeSaved}
+          >
+            Save Shape To Set
+          </button>
+        </div>
 
         <ShapesDisplay />
       </div>
