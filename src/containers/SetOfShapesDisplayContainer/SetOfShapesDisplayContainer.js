@@ -12,15 +12,13 @@ class SetOfShapesDisplayContainer extends Component {
     return (
       <div className="setOfShapesDisplayContainer">
         <p>
-          <b>Your saved set of SVG shapes</b>
+          <b>#3 Click on a SAVED SHAPE to download it</b>
         </p>
-        <p className={"instructions"}>
-          Click on a shape to download it in SVG format
-        </p>
-        <SetOfShapesDisplay />
         <button onClick={this.props.onDeleteAllShapes}>
           DELETE ALL SHAPES
         </button>
+        <SetOfShapesDisplay />
+
       </div>
     );
   }

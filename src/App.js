@@ -8,6 +8,9 @@ import SetOfShapesDisplayContainer from "./containers/SetOfShapesDisplayContaine
 import CanvasContainer from "./containers/CanvasContainer/CanvasContainer";
 
 class App extends Component {
+  componentDidMount(){
+    document.title = "SVG Creator"
+  }
   render() {
     return (
       <div className="App">

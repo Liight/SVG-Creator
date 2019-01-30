@@ -12,7 +12,7 @@ class CanvasContainer extends Component {
     return (
       <div className="canvasContainer">
         <p>
-          <b>Free Draw Canvas</b>
+          <b>#1 Draw on the canvas</b>
         </p>
         <div>
           <button onClick={this.props.onCanvasClear}>Clear Canvas</button>
