@@ -1,5 +1,8 @@
 .colorButtons {
     width: 20% !important;
+    color: white;
+    font-weight: 800;
+    font-size: 1em;
 }
 
 .canvasButtonGroup{

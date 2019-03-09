@@ -15,9 +15,11 @@ class colorOptionsPanel extends Component {
     let buttonDisplay = (
         <div>
         {buttonDisplayColors.map((c,i) => {
+          console.log(c)
             return (<button 
                 key={i}
                 className="colorButtons"
+                style={{"backgroundColor": c}}
                 onClick={() => this.props.onChangeColor(c)}>{c}</button>);
         })}
             
