@@ -1,7 +1,11 @@
 .App {
   display: flex;
   text-align: center;
-  background-color: #d4d4d4
+  background-color: #d4d4d4;
+  font-family: Tahoma;
+  color: #2f2f2f;
+  padding: 0px;
+  margin: 0px;
 }
 
 .CanvasContainer{}

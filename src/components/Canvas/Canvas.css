@@ -1,8 +1,9 @@
 .canvas {
     position: relative;
     border: 1px solid gray;
-    margin-top:10px;
+    margin-top:10px auto 10px auto;
     background-color: #fafafa;
+    width: 500px;
 }
 
 .canvas:hover{

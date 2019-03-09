@@ -12,13 +12,14 @@ class SetOfShapesDisplayContainer extends Component {
     return (
       <div className="setOfShapesDisplayContainer">
         <p>
-          <b>#3 Click on a SAVED SHAPE to download it</b>
+          <b className="instructions">
+            #3 Click on a SAVED SHAPE to download it
+          </b>
         </p>
+        <SetOfShapesDisplay />
         <button onClick={this.props.onDeleteAllShapes}>
           DELETE ALL SHAPES
         </button>
-        <SetOfShapesDisplay />
-
       </div>
     );
   }

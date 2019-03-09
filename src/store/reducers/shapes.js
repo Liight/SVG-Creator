@@ -117,7 +117,12 @@ const downloadShape = (state, action) => {
 };
 
 const deleteAllShapes = (state, action) => {
-    return updateObject(state, { shapeSet: [] })
+    if (window.confirm("Are you sure you want to delete all your saved shapes?")){
+        return updateObject(state, { shapeSet: [] })
+    } else {
+        return state;
+    }
+    
 }
 
 const reducer = (state = initialState, action) => {

@@ -1,21 +1,38 @@
 .canvasContainer{
     display: flex;
     text-align:center;
+    align-items: center;
     flex-flow:column;
-    width: 500px;
-    margin: 10px auto 10px auto;
+    width: 33.33%;
+    margin: 0px auto 0px ;
+    background-color: #d5d5d5;
+}
+
+@media screen and (max-width: 1600px) {
+  .canvasContainer{
+    width: 100%;
+  }
+}
+
+.instructions{
+    margin: 5px;
+    font-size: 2em;
 }
 
 .canvasContainer button{
     margin: 5px;
-    width: 80%;
+    width: 400px;
     border-radius: 8px;
     text-transform: uppercase;
     padding: 1px;
     box-shadow: 0px 12px 10px -10px rgba(0, 0, 0, 0.4);
     cursor: pointer;
     transition: all ease-in-out 300ms;
+    background-color: #fafafa;
+    font-weight: bold;
+    font-size: 1em;
 }
+
 .canvasContainer button:hover {
   box-shadow: 0px 37px 20px -20px rgba(0, 0, 0, 0.2);
   -webkit-transform: translate(0px, -2px) scale(1.1);
