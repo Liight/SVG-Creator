@@ -30,7 +30,7 @@ class colorOptionsPanel extends Component {
 
     return (
       <div>
-        <p><b>Choose Colors</b></p>
+        <p><b className="instructions">Choose Colors</b></p>
         <div className={"canvasButtonGroup"}>{buttonDisplay}</div>
         
       </div>
