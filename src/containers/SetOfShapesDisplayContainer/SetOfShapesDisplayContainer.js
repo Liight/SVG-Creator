@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import * as actions from "../../store/actions/index";
+// import * as actions from "../../store/actions/index";
 
 import SetOfShapesDisplay from "../../components/SetOfShapesDisplay/SetOfShapesDisplay";
 
@@ -13,13 +13,13 @@ class SetOfShapesDisplayContainer extends Component {
       <div className="setOfShapesDisplayContainer">
         <p>
           <b className="instructions">
-            #3 Click on a SAVED SHAPE to download it
+            #2 Click on a SAVED SHAPE to download it
           </b>
         </p>
         <SetOfShapesDisplay />
-        <button onClick={this.props.onDeleteAllShapes}>
+        {/* <button onClick={this.props.onDeleteAllShapes}>
           DELETE ALL SHAPES
-        </button>
+        </button> */}
       </div>
     );
   }
@@ -31,7 +31,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onDeleteAllShapes: () => dispatch(actions.deleteAllShapes())
+    // onDeleteAllShapes: () => dispatch(actions.deleteAllShapes())
   };
 };
 

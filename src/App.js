@@ -8,15 +8,40 @@ import SetOfShapesDisplayContainer from "./containers/SetOfShapesDisplayContaine
 import CanvasContainer from "./containers/CanvasContainer/CanvasContainer";
 
 class App extends Component {
-  componentDidMount(){
-    document.title = "SVG Creator"
+  componentDidMount() {
+    document.title = "SVG Creator";
   }
   render() {
     return (
       <div className="App">
-        <CanvasContainer className={CanvasContainer}/>
-        <ShapesDisplayContainer className={ShapesDisplayContainer}/>
-        <SetOfShapesDisplayContainer className={SetOfShapesDisplayContainer}/>
+        <div className="link-container">
+          {" "}
+          <a
+            href="https://www.w3.org/TR/SVG2/intro.html#AboutSVG"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {" "}
+            <img
+              alt="Salable Vector graphics"
+              src={require("../src/assets/images/svgLogo.PNG")}
+              width="100%"
+              height="auto"
+            />
+          </a>
+        </div>
+
+        <div className="welcome">
+          <p className="welcome-text">Create and download SVGs</p>
+        </div>
+
+        <div className="app-components">
+          <CanvasContainer className={CanvasContainer} />
+          <ShapesDisplayContainer className={ShapesDisplayContainer} />
+          <SetOfShapesDisplayContainer
+            className={SetOfShapesDisplayContainer}
+          />
+        </div>
       </div>
     );
   }

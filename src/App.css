@@ -1,21 +1,65 @@
 .App {
   display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  background-color: #d4d4d4;
+  background-color: #d4d4d4; /* set background for app */
   font-family: Tahoma;
   color: #2f2f2f;
   padding: 0px;
   margin: 0px;
 }
+.link-container{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 80px;
+  height: 80px;
+}
+.App a{
+  margin-left: 1em;
+  margin-top: 1em;
+}
+.app-components{
+  display: flex;
+  width: 100%;
+  min-width: 550px;
+}
+
+
+.welcome{
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 80%;
+  min-width: 550px;
+  height: auto;
+  overflow: hidden;
+  border: 1px solid black;
+}
+
+.welcome-text{
+  color: black;
+  font-family: "Raleway";
+  font-size: 4em;
+  margin: 0;
+}
+
+
 
 .CanvasContainer{}
 .ShapesDisplayContainer{}
 .SetOfShapesDisplayContainer{}
 
-@media screen and (max-width: 1600px) {
+@media screen and (max-width: 1200px) {
   .App{
     flex-direction: column;
   }
+  .app-components{
+  flex-flow: column;
+}
 }
 
 /*  Global to App */
@@ -35,4 +79,28 @@
   box-shadow: 0px 37px 20px -20px rgba(0, 0, 0, 0.2);
   -webkit-transform: translate(0px, -10px) scale(1.2);
           transform: translate(0px, -10px) scale(1.2);
+}
+
+
+@media screen and (max-width: 1100px) {
+
+.welcome{
+  width:100%;
+}
+.app a img{
+  width: 32px;
+  height:32px;
+}
+}
+
+@media(max-width: 950px){
+  .link-container{
+    display: none;
+  }
+}
+
+@media(max-width: 750px){
+  .welcome-text{
+    font-size: 3em;
+  }
 }

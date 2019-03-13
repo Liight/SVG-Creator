@@ -9,17 +9,29 @@ import "./CanvasContainer.css";
 
 class CanvasContainer extends Component {
   render() {
+    let buttonSet = (
+      <div className="canvas-container-button-container">
+        <button onClick={this.props.onCanvasClear}>Clear Canvas</button>
+        <button
+          disabled={!this.props.canSaveShape}
+          onClick={this.props.onSetShapeToBeSaved}
+        >
+          Save Shape To Set
+        </button>
+      </div>
+    );
+
     return (
       <div className="canvasContainer">
         <p>
           <b className="instructions">#1 Draw on the canvas</b>
         </p>
-        <div>
-          <button onClick={this.props.onCanvasClear}>Clear Canvas</button>
-        </div>
 
-        <Canvas />
-        <ColorOptionsPanel />
+        <div className="studio">
+          <ColorOptionsPanel />
+          <Canvas />
+          {buttonSet}
+        </div>
       </div>
     );
   }
@@ -27,13 +39,15 @@ class CanvasContainer extends Component {
 
 const mapStateToProps = state => {
   return {
-    canvasIsClear: state.canvas.canvasIsClear
+    canvasIsClear: state.canvas.canvasIsClear,
+    canSaveShape: state.shapes.canSaveShape
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    onCanvasClear: () => dispatch(actions.clearCanvas())
+    onCanvasClear: () => dispatch(actions.clearCanvas()),
+    onSetShapeToBeSaved: () => dispatch(actions.setShapeToBeSaved())
   };
 };
 

@@ -32,7 +32,7 @@ prepareShapeForDownloadAndExecuteDownload(e){
       <div id="setOfShapesDisplayDiv">
           {shapeSetToRender.map(shapeSet => {
 
-              console.log('shape saved to set and on display', shapeSet)
+              // console.log('shape saved to set and on display', shapeSet)
               return (
                   <svg 
                     height={100} 

@@ -1,40 +1,60 @@
-.canvasContainer{
-    display: flex;
-    text-align:center;
-    align-items: center;
-    flex-flow:column;
-    width: 33.33%;
-    margin: 0px auto 0px ;
-    background-color: #d5d5d5;
+.canvasContainer {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  flex-flow: column;
+  width: 50%; /** prev 33.33% */
+  margin: 0px 0px 0px 0px;
+  background-color: rgba(0, 0, 0, 0); /* prev #D5D5D5 */
 }
 
-@media screen and (max-width: 1600px) {
-  .canvasContainer{
-    width: 100%;
-  }
+.instructions {
+  margin: 5px;
+  font-size: 2em;
 }
 
-.instructions{
-    margin: 5px;
-    font-size: 2em;
+.canvas-container-button-container {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100%;
+}
+.canvas-container-button-container button {
+  height: 150px;
 }
 
-.canvasContainer button{
-    margin: 5px;
-    width: 400px;
-    border-radius: 8px;
-    text-transform: uppercase;
-    padding: 1px;
-    box-shadow: 0px 12px 10px -10px rgba(0, 0, 0, 0.4);
-    cursor: pointer;
-    transition: all ease-in-out 300ms;
-    background-color: #fafafa;
-    font-weight: bold;
-    font-size: 1em;
+.canvasContainer button {
+  margin: 5px;
+  width: 90%;
+  border-radius: 8px;
+  text-transform: uppercase;
+  padding: 1px;
+  box-shadow: 0px 12px 10px -10px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  transition: all ease-in-out 300ms;
+  background-color: #fafafa;
+  font-weight: bold;
+  font-size: 1em;
 }
 
 .canvasContainer button:hover {
   box-shadow: 0px 37px 20px -20px rgba(0, 0, 0, 0.2);
   -webkit-transform: translate(0px, -2px) scale(1.1);
-          transform: translate(0px, -2px) scale(1.1);
+  transform: translate(0px, -2px) scale(1.1);
+}
+
+.studio {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+@media screen and (max-width: 1600px) {
+  .canvasContainer {
+    width: 100%;
+  }
 }
