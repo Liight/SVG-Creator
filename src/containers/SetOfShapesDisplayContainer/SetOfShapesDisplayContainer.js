@@ -12,11 +12,11 @@ class SetOfShapesDisplayContainer extends Component {
     return (
       <div className="setOfShapesDisplayContainer">
         <p>
-          <b className="instructions">
-            #2 Click on a SAVED SHAPE to download it
-          </b>
+          <b className="instructions">#2 Click on a shape to download</b>
         </p>
-        <SetOfShapesDisplay />
+        <div className="setOfShapesDisplayContainer-wrapper">
+          <SetOfShapesDisplay />
+        </div>
         {/* <button onClick={this.props.onDeleteAllShapes}>
           DELETE ALL SHAPES
         </button> */}

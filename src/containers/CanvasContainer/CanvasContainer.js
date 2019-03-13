@@ -8,10 +8,16 @@ import ColorOptionsPanel from "../../components/ColorOptionsPanel/ColorOptionsPa
 import "./CanvasContainer.css";
 
 class CanvasContainer extends Component {
+
+clearShapeHandler = () => {
+  this.props.onCanvasClear()
+  this.props.onClearShapesDisplay();
+}
+
   render() {
     let buttonSet = (
       <div className="canvas-container-button-container">
-        <button onClick={this.props.onCanvasClear}>Clear Canvas</button>
+        <button onClick={this.clearShapeHandler}>Clear Canvas</button>
         <button
           disabled={!this.props.canSaveShape}
           onClick={this.props.onSetShapeToBeSaved}
@@ -47,7 +53,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     onCanvasClear: () => dispatch(actions.clearCanvas()),
-    onSetShapeToBeSaved: () => dispatch(actions.setShapeToBeSaved())
+    onSetShapeToBeSaved: () => dispatch(actions.setShapeToBeSaved()),
+    onClearShapesDisplay: () => dispatch(actions.clearShapesDisplay())
   };
 };
 

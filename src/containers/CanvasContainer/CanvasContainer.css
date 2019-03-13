@@ -1,9 +1,13 @@
 .canvasContainer {
   display: flex;
+  flex-flow: column;
+  justify-content: center;
   text-align: center;
   align-items: center;
   flex-flow: column;
   width: 50%; /** prev 33.33% */
+  height: 100%;
+  min-height: 650px;
   margin: 0px 0px 0px 0px;
   background-color: rgba(0, 0, 0, 0); /* prev #D5D5D5 */
 }
@@ -50,7 +54,7 @@
   flex-flow: row;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  height: auto;
 }
 
 @media screen and (max-width: 1600px) {

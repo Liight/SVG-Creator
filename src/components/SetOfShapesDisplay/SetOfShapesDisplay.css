@@ -1,18 +1,21 @@
 #setOfShapesDisplayDiv {
-    width: 500px;
-    height: 500px;
-    /* border: 1px solid salmon; */
-    flex-flow: row;
-    margin: 10px auto 10px auto;
-    background-color: #fafafa;
-    overflow-y: scroll;
+  /* display: flex;
+  flex-flow: row; */
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 500px;
+  height: 500px;
+  /* border: 1px solid salmon; */
+  margin: auto auto auto auto;
+  background-color: #fafafa;
+  overflow-y: scroll;
 }
 
-.setOfShapesDisplayContainer{
-
+.setOfShapesDisplayContainer {
 }
 
-svg{
-    border: 1px solid rgb(70, 140, 206);
-    margin: 5px;    
+svg {
+  border: 1px solid rgb(70, 140, 206);
+  margin: 5px;
 }
