@@ -1,11 +1,39 @@
-.canvas {
-    position: relative;
-    border: 1px solid gray;
-    margin-top:10px auto 10px auto;
-    background-color: #fafafa;
-    width: 500px;
-}
-
-.canvas:hover{
-    cursor: crosshair;
-}
+        .canvas {
+            position: relative !important;
+            border: 1px solid gray;
+            margin-top: 10px auto 10px auto;
+            background-color: #fafafa;
+            width: 500px;
+        }
+        
+        .canvas:hover {
+            cursor: crosshair;
+        }
+        /* Galaxy: Note3, S3, S5; Pixel: 2, Pixel 2L;  */
+        
+        @media(min-width: 300px) and (min-height: 500px) {
+            .canvas {
+                width: 300px;
+            }
+        }
+        /* Nexus 10  */
+        
+        @media(min-width: 800px) and (min-height: 1200px) {
+            .canvas {
+                width: 500px;
+            }
+        }
+        /* iPad */
+        
+        @media(min-width: 700px) and (min-height: 1000px) {
+            .canvas {
+                width: 500px;
+            }
+        }
+        /* Desktop */
+        
+        @media(min-width: 1200px) and (min-height: 800px) {
+            .canvas {
+                width: 500px;
+            }
+        }

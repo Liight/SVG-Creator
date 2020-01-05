@@ -1,64 +1,141 @@
-.canvasContainer {
-  display: flex;
-  flex-flow: column;
-  justify-content: center;
-  text-align: center;
-  align-items: center;
-  flex-flow: column;
-  width: 50%; /** prev 33.33% */
-  height: 100%;
-  min-height: 650px;
-  margin: 0px 0px 0px 0px;
-  background-color: rgba(0, 0, 0, 0); /* prev #D5D5D5 */
-}
-
-.instructions {
-  margin: 5px;
-  font-size: 2em;
-}
-
-.canvas-container-button-container {
-  display: flex;
-  flex-flow: column;
-  justify-content: center;
-  align-items: center;
-  width: 100px;
-  height: 100%;
-}
-.canvas-container-button-container button {
-  height: 150px;
-}
-
-.canvasContainer button {
-  margin: 5px;
-  width: 90%;
-  border-radius: 8px;
-  text-transform: uppercase;
-  padding: 1px;
-  box-shadow: 0px 12px 10px -10px rgba(0, 0, 0, 0.4);
-  cursor: pointer;
-  transition: all ease-in-out 300ms;
-  background-color: #fafafa;
-  font-weight: bold;
-  font-size: 1em;
-}
-
-.canvasContainer button:hover {
-  box-shadow: 0px 37px 20px -20px rgba(0, 0, 0, 0.2);
-  -webkit-transform: translate(0px, -2px) scale(1.1);
-  transform: translate(0px, -2px) scale(1.1);
-}
-
-.studio {
-  display: flex;
-  flex-flow: row;
-  justify-content: center;
-  align-items: center;
-  height: auto;
-}
-
-@media screen and (max-width: 1600px) {
-  .canvasContainer {
-    width: 100%;
-  }
-}
+                    .canvasContainer {
+                        display: flex;
+                        flex-flow: column;
+                        justify-content: center;
+                        text-align: center;
+                        align-items: center;
+                        flex-flow: column;
+                        width: 50%;
+                        /** prev 33.33% */
+                        height: auto;
+                        /* min-height: 650px; */
+                        margin: 0px 0px 0px 0px;
+                        background-color: rgba(0, 0, 0, 0);
+                        /* prev #D5D5D5 */
+                    }
+                    
+                    .instructions {
+                        margin: 5px;
+                        font-size: 2em;
+                    }
+                    
+                    .canvas-container-button-container {
+                        display: flex;
+                        flex-flow: column;
+                        justify-content: center;
+                        align-items: center;
+                        width: 100px;
+                        height: 100%;
+                    }
+                    
+                    .canvas-container-button-container button {
+                        height: 150px;
+                    }
+                    
+                    .canvasContainer button {
+                        margin: 5px;
+                        width: 90%;
+                        border-radius: 8px;
+                        text-transform: uppercase;
+                        padding: 1px;
+                        box-shadow: 0px 12px 10px -10px rgba(0, 0, 0, 0.4);
+                        cursor: pointer;
+                        transition: all ease-in-out 300ms;
+                        background-color: #fafafa;
+                        font-weight: bold;
+                        font-size: 1em;
+                    }
+                    
+                    .canvasContainer button:hover {
+                        box-shadow: 0px 37px 20px -20px rgba(0, 0, 0, 0.2);
+                        -webkit-transform: translate(0px, -2px) scale(1.1);
+                        transform: translate(0px, -2px) scale(1.1);
+                    }
+                    
+                    .studio {
+                        display: flex;
+                        flex-flow: row;
+                        justify-content: center;
+                        align-items: center;
+                        height: auto;
+                    }
+                    /* Galaxy: Note3, S3, S5; Pixel: 2, Pixel 2L; iPhone: 5/SE */
+                    
+                    @media(min-width: 300px) and (min-height: 500px) {
+                        .canvasContainer {
+                            width: 100%;
+                            justify-content: flex-start;
+                            text-align: center;
+                            align-items: center;
+                        }
+                        .instructions {
+                            margin: 5px;
+                            font-size: 1.5em;
+                        }
+                        .studio {
+                            position: relative;
+                            flex-flow: column;
+                            width: 100vw;
+                        }
+                        .canvas-container-button-container {
+                            flex-direction: row;
+                            width: 100%;
+                        }
+                        .canvasContainer button {
+                            height: 50px;
+                            width: 40%;
+                        }
+                    }
+                    /* Nexus 10  */
+                    
+                    @media(min-width: 800px) and (min-height: 1200px) {
+                        .canvasContainer {
+                            width: 100%;
+                            justify-content: flex-start;
+                            text-align: center;
+                            align-items: center;
+                        }
+                        .instructions {
+                            margin: 5px;
+                            font-size: 1.5em;
+                        }
+                        .studio {
+                            position: relative;
+                            flex-flow: column;
+                            width: 100%;
+                        }
+                        .canvas-container-button-container {
+                            flex-direction: row;
+                            width: 75%;
+                        }
+                        .canvasContainer button {
+                            height: 50px;
+                            width: 40%;
+                        }
+                    }
+                    /* Desktop */
+                    
+                    @media(min-width: 1200px) and (min-height: 800px) {
+                        .canvasContainer {
+                            width: 50%;
+                        }
+                        .studio {
+                            position: relative;
+                            flex-flow: row;
+                            width: 50%;
+                        }
+                        .canvas-container-button-container {
+                            flex-direction: column;
+                            width: 75%;
+                        }
+                        .canvasContainer button {
+                            height: 150px;
+                            width: 100%;
+                        }
+                    }
+                    
+                    @media screen and (max-width: 1600px) {
+                        .canvasContainer {
+                            width: 100%;
+                        }
+                    }

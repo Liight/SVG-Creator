@@ -12,19 +12,27 @@ class colorOptionsPanel extends Component {
     }
 
     let buttonDisplay = (
-      <div>
+      <div className={"canvasButtonGroup"}>
         {buttonDisplayColors.map((c, i) => {
-          console.log(c);
-          return (
+          {/* console.log(c); */}
+          return window.innerWidth < 500 
+          ? (
             <button
               key={i}
               className="colorButtons"
               style={{ backgroundColor: c }}
               onClick={() => this.props.onChangeColor(c)}
             >
-              {c}
+              {/* {c} */}
             </button>
-          );
+            ) : <button
+              key={i}
+              className="colorButtons"
+              style={{ backgroundColor: c }}
+              onClick={() => this.props.onChangeColor(c)}
+            >
+              {c}
+            </button>;
         })}
       </div>
     );
@@ -36,7 +44,7 @@ class colorOptionsPanel extends Component {
         <p>
           <b className="instructions">Choose Colors</b>
         </p>
-        <div className={"canvasButtonGroup"}>{buttonDisplay}</div>
+      {buttonDisplay}
       </div>
     );
   }

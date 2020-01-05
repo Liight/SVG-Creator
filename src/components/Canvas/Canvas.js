@@ -68,8 +68,12 @@ export class Canvas extends Component {
   }
 
   getMouseCoordinates(event) {
-    const canvas_x = event.pageX - this.elem.offsetLeft;
-    const canvas_y = event.pageY - this.elem.offsetTop;
+    const canvas = this.elem;
+    const rect = canvas.getBoundingClientRect();
+    // const canvas_x = event.clientX - this.elem.offsetLeft;
+    // const canvas_y = event.clientY - this.elem.offsetTop;;
+    const canvas_x =(event.clientX - rect.left) / (rect.right - rect.left) * canvas.width;
+    const canvas_y = (event.clientY - rect.top) / (rect.bottom - rect.top) * canvas.height
     return {
       x: canvas_x,
       y: canvas_y
@@ -143,6 +147,10 @@ export class Canvas extends Component {
   }
 
   render() {
+
+  // Touch Event and Mouse Event Updates
+
+
     return (
       <canvas
         id="can"
@@ -154,10 +162,15 @@ export class Canvas extends Component {
         onMouseDown={event => this.onMouseDown(event)}
         onMouseMove={event => this.onMouseMove(event)}
         onMouseUp={event => this.onMouseUp(event)}
+        ontouchstart={event => this.onMouseDown(event)}
+        onTouchMove={event => this.onMouseMove(event)}
+        onTouchUp={event => this.onMouseUp(event)}
       />
     );
   }
 }
+
+
 
 const mapStateToProps = state => {
   return {

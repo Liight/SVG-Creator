@@ -1,43 +1,51 @@
-.shapesDisplayContainer{
-    display: none; /* previously flex */
-    text-align:center;
-    flex-flow:column;
-    width: 33.3%; 
-    margin: 0px auto 0px ;
-    background-color: #e5e5e5;
-}
-
-@media screen and (max-width: 1600px) {
-  .shapesDisplayContainer{
-    width: 100%;
-  }
-}
-
-.instructions{
-    margin: 5px;
-    font-size: 2em;
-}
-
-.shapesDisplayContainer button{
-    width: 45%;
-    margin: 5px;
-}
-
-.shapesDisplayContainer button{
-    margin: 5px;
-    width: 225px;
-    border-radius: 8px;
-    text-transform: uppercase;
-    padding: 1px;
-    box-shadow: 0px 12px 10px -10px rgba(0, 0, 0, 0.4);
-    cursor: pointer;
-    transition: all ease-in-out 300ms;
-    background-color: #fafafa;
-    font-weight: bold;
-    font-size: 1em;
-}
-.shapesDisplayContainer button:hover {
-  box-shadow: 0px 37px 20px -20px rgba(0, 0, 0, 0.2);
-  -webkit-transform: translate(0px, -2px) scale(1.1);
-          transform: translate(0px, -2px) scale(1.1);
-}
+    .shapesDisplayContainer {
+        display: none;
+        /* previously flex */
+        text-align: center;
+        flex-flow: column;
+        width: 33.3%;
+        margin: 0px auto 0px;
+        background-color: #e5e5e5;
+    }
+    
+    /* @media(minwidth:300px) and (max-width:500px) {
+        .shapesDisplayContainer {
+            width: 300px;
+        }
+    } */
+    
+    @media screen and (max-width: 1600px) {
+        .shapesDisplayContainer {
+            /* width: 100%; */
+        }
+    }
+    
+    .instructions {
+        margin: 5px;
+        font-size: 2em;
+    }
+    
+    .shapesDisplayContainer button {
+        width: 45%;
+        margin: 5px;
+    }
+    
+    .shapesDisplayContainer button {
+        margin: 5px;
+        width: 225px;
+        border-radius: 8px;
+        text-transform: uppercase;
+        padding: 1px;
+        box-shadow: 0px 12px 10px -10px rgba(0, 0, 0, 0.4);
+        cursor: pointer;
+        transition: all ease-in-out 300ms;
+        background-color: #fafafa;
+        font-weight: bold;
+        font-size: 1em;
+    }
+    
+    .shapesDisplayContainer button:hover {
+        box-shadow: 0px 37px 20px -20px rgba(0, 0, 0, 0.2);
+        -webkit-transform: translate(0px, -2px) scale(1.1);
+        transform: translate(0px, -2px) scale(1.1);
+    }
