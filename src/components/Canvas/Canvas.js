@@ -70,10 +70,18 @@ export class Canvas extends Component {
   getMouseCoordinates(event) {
     const canvas = this.elem;
     const rect = canvas.getBoundingClientRect();
-    // const canvas_x = event.clientX - this.elem.offsetLeft;
-    // const canvas_y = event.clientY - this.elem.offsetTop;;
-    const canvas_x =(event.clientX - rect.left) / (rect.right - rect.left) * canvas.width;
-    const canvas_y = (event.clientY - rect.top) / (rect.bottom - rect.top) * canvas.height
+    let canvas_x; 
+    let canvas_y;
+    if (event.touches !== undefined){
+      const e = event.touches[0];
+      // console.log(e.touches[0]);
+      canvas_x = (e.clientX - rect.left) / (rect.right - rect.left) * canvas.width;
+      canvas_y = (e.clientY - rect.top) / (rect.bottom - rect.top) * canvas.height;
+    } else {
+      canvas_x = (event.clientX - rect.left) / (rect.right - rect.left) * canvas.width;
+      canvas_y = (event.clientY - rect.top) / (rect.bottom - rect.top) * canvas.height;
+    }
+    console.log('x: '+canvas_x, 'y:'+canvas_y)
     return {
       x: canvas_x,
       y: canvas_y
@@ -81,6 +89,12 @@ export class Canvas extends Component {
   }
 
   onMouseDown(event) {
+    // No Scrolling when clicking on the canvas
+    if(event.target.nodeName === 'CANVAS'){
+      event.preventDefault();
+      console.log('default prevented')
+    }
+    
     this.setState({ mouseIsDown: true, startedDrawing: true, record: true });
     let mouseCoords = this.getMouseCoordinates(event);
     this.ctx.moveTo(mouseCoords.x, mouseCoords.y);
@@ -162,9 +176,9 @@ export class Canvas extends Component {
         onMouseDown={event => this.onMouseDown(event)}
         onMouseMove={event => this.onMouseMove(event)}
         onMouseUp={event => this.onMouseUp(event)}
-        ontouchstart={event => this.onMouseDown(event)}
+        onTouchStart={event => this.onMouseDown(event)}
         onTouchMove={event => this.onMouseMove(event)}
-        onTouchUp={event => this.onMouseUp(event)}
+        onTouchEnd={event => this.onMouseUp(event)}
       />
     );
   }

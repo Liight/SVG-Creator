@@ -14,8 +14,7 @@ class colorOptionsPanel extends Component {
     let buttonDisplay = (
       <div className={"canvasButtonGroup"}>
         {buttonDisplayColors.map((c, i) => {
-          {/* console.log(c); */}
-          return window.innerWidth < 500 
+          return window.innerWidth < 1200 
           ? (
             <button
               key={i}

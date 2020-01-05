@@ -35,6 +35,7 @@
                     .canvasContainer button {
                         margin: 5px;
                         width: 90%;
+                        max-width: 250px;
                         border-radius: 8px;
                         text-transform: uppercase;
                         padding: 1px;
@@ -84,6 +85,7 @@
                         .canvasContainer button {
                             height: 50px;
                             width: 40%;
+                            max-width: 250px;
                         }
                     }
                     /* Nexus 10  */
@@ -111,13 +113,14 @@
                         .canvasContainer button {
                             height: 50px;
                             width: 40%;
+                            max-width: 250px;
                         }
                     }
                     /* Desktop */
                     
                     @media(min-width: 1200px) and (min-height: 800px) {
                         .canvasContainer {
-                            width: 50%;
+                            width: 100%;
                         }
                         .studio {
                             position: relative;
@@ -130,12 +133,6 @@
                         }
                         .canvasContainer button {
                             height: 150px;
-                            width: 100%;
-                        }
-                    }
-                    
-                    @media screen and (max-width: 1600px) {
-                        .canvasContainer {
                             width: 100%;
                         }
                     }
