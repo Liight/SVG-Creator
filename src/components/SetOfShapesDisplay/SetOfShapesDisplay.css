@@ -1,21 +1,27 @@
-#setOfShapesDisplayDiv {
-  /* display: flex;
+    #setOfShapesDisplayDiv {
+    /* display: flex;
   flex-flow: row; */
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  width: 500px;
-  height: 500px;
-  /* border: 1px solid salmon; */
-  margin: auto auto auto auto;
-  background-color: #fafafa;
-  overflow-y: scroll;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 500px;
+    /* height: 500px; */
+    /* border: 1px solid salmon; */
+    margin: 0px;
+    background-color: #fafafa;
+    overflow-y: scroll;
+    
 }
 
-.setOfShapesDisplayContainer {
-}
+.setOfShapesDisplayContainer {}
 
 svg {
-  border: 1px solid rgb(70, 140, 206);
-  margin: 5px;
+    border: 1px solid rgb(70, 140, 206);
+    margin: 5px;
 }
+
+@media(min-height:300px) {
+    #setOfShapesDisplayDiv {
+      height: 160px;
+    }
+  }

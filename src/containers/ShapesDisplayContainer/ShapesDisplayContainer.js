@@ -10,19 +10,6 @@ class ShapesDisplayContainer extends Component {
   render() {
     return (
       <div className="shapesDisplayContainer">
-        <div>
-          <p>
-            <b className="instructions">#2 The SVG Element Renders below</b>
-          </p>
-          <button onClick={this.props.onClearShapesDisplay}>Clear SVG</button>
-          <button
-            disabled={!this.props.canSaveShape}
-            onClick={this.props.onSetShapeToBeSaved}
-          >
-            Save Shape To Set
-          </button>
-        </div>
-
         <ShapesDisplay />
       </div>
     );

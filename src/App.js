@@ -2,10 +2,11 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 import "./App.css";
-// import ShapesDisplay from "./components/ShapesDisplay/ShapesDisplay";
 import ShapesDisplayContainer from "./containers/ShapesDisplayContainer/ShapesDisplayContainer";
 import SetOfShapesDisplayContainer from "./containers/SetOfShapesDisplayContainer/SetOfShapesDisplayContainer";
 import CanvasContainer from "./containers/CanvasContainer/CanvasContainer";
+import Footer from './containers/footer/footer.js';
+import Header from './containers/header/header.js'
 
 class App extends Component {
   componentDidMount() {
@@ -14,27 +15,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="link-container">
-          {" "}
-          <a
-            href="https://www.w3.org/TR/SVG2/intro.html#AboutSVG"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {" "}
-            <img
-              alt="Salable Vector graphics"
-              src={require("../src/assets/images/svgLogo.PNG")}
-              width="100%"
-              height="auto"
-            />
-          </a>
-        </div>
-
-        <div className="welcome">
-          <p className="welcome-text">Create and download SVGs</p>
-        </div>
-
+        <Header />
         <div className="app-components">
           <CanvasContainer className={CanvasContainer} />
           <ShapesDisplayContainer className={ShapesDisplayContainer} />
@@ -42,6 +23,7 @@ class App extends Component {
             className={SetOfShapesDisplayContainer}
           />
         </div>
+        <Footer />
       </div>
     );
   }

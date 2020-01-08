@@ -17,12 +17,13 @@ clearShapeHandler = () => {
   render() {
     let buttonSet = (
       <div className="canvas-container-button-container">
-        <button onClick={this.clearShapeHandler}>Clear Canvas</button>
+        <button onClick={this.clearShapeHandler} className="canvasContainerButton">Clear Canvas</button>
         <button
+          className="canvasContainerButton"
           disabled={!this.props.canSaveShape}
           onClick={this.props.onSetShapeToBeSaved}
         >
-          Save Shape To Set
+          Save Image
         </button>
       </div>
     );
@@ -30,7 +31,7 @@ clearShapeHandler = () => {
     return (
       <div className="canvasContainer">
         <p>
-          <b className="instructions">#1 Draw on the canvas</b>
+          <b className="canvasInstructions">Draw on the canvas below.</b>
         </p>
 
         <div className="studio">

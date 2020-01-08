@@ -30,7 +30,7 @@ class colorOptionsPanel extends Component {
               style={{ backgroundColor: c }}
               onClick={() => this.props.onChangeColor(c)}
             >
-              {c}
+              {/* {c} */}
             </button>;
         })}
       </div>
@@ -40,9 +40,9 @@ class colorOptionsPanel extends Component {
 
     return (
       <div className="color-palette">
-        <p>
-          <b className="instructions">Choose Colors</b>
-        </p>
+        {/* <p className="instructions">
+          <b>colors</b>
+        </p> */}
       {buttonDisplay}
       </div>
     );

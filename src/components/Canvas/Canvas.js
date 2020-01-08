@@ -91,8 +91,11 @@ export class Canvas extends Component {
   onMouseDown(event) {
     // No Scrolling when clicking on the canvas
     if(event.target.nodeName === 'CANVAS'){
-      event.preventDefault();
-      console.log('default prevented')
+      try {
+        event.preventDefault();
+      } catch(err){
+        console.log(err);
+      }
     }
     
     this.setState({ mouseIsDown: true, startedDrawing: true, record: true });
