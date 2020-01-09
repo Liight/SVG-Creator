@@ -19,6 +19,7 @@
     .canvasInstructions {
         margin: 5px;
         font-size: 2em;
+        color: 1C2626;
     }
     
     .studio {
@@ -59,6 +60,14 @@
         box-shadow: 0px 37px 20px -20px rgba(0, 0, 0, 0.2);
         -webkit-transform: translate(0px, -2px) scale(1.1);
         transform: translate(0px, -2px) scale(1.1);
+    }
+    
+    .canvas-container-button-clear-canvas {
+        background-color: rgba(148, 247, 255, 1);
+    }
+    
+    .canvas-container-button-save-image {
+        background-color: #82E0AA;
     }
     
     @media(max-width: 501px) {

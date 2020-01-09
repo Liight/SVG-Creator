@@ -5,7 +5,7 @@
         justify-content: center;
         height: 100px;
         width: 100vw;
-        background-color: #000000;
+        background-color: #1C2626;
         color: #FFFFFF;
         padding: 5px 0px 5px 0px;
         margin: 0px;
@@ -36,6 +36,7 @@
     .header-instruction h2 {
         margin: 0px auto 0px auto;
         padding: 5ps 0px 5px 0px;
+        color: #dfd0b7;
     }
     
     .header-text h1 {
