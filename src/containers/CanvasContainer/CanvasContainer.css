@@ -7,19 +7,15 @@
         flex-flow: column;
         width: 50%;
         min-width: 500px;
-        /** prev 33.33% */
         height: auto;
-        /* min-height: 650px; */
         margin: 0px 0px 0px 0px;
         background-color: rgba(0, 0, 0, 0);
-        /* border: 2px solid black; */
-        /* prev #D5D5D5 */
     }
     
     .canvasInstructions {
         margin: 5px;
         font-size: 2em;
-        color: 1C2626;
+        color: #1C2626;
     }
     
     .studio {
@@ -51,23 +47,34 @@
         box-shadow: 0px 12px 10px -10px rgba(0, 0, 0, 0.4);
         cursor: pointer;
         transition: all ease-in-out 300ms;
-        background-color: #fafafa;
         font-weight: bold;
         font-size: 1em;
+        color: #1C2626;
+    }
+    
+    .canvas-container-button-save-image:disabled {
+        opacity: 0.3;
+    }
+    
+    .canvas-container-button-save-image:disabled:hover {
+        opacity: 0.3;
+        transform: none;
     }
     
     .canvasContainerButton:hover {
         box-shadow: 0px 37px 20px -20px rgba(0, 0, 0, 0.2);
-        -webkit-transform: translate(0px, -2px) scale(1.1);
-        transform: translate(0px, -2px) scale(1.1);
     }
     
     .canvas-container-button-clear-canvas {
         background-color: rgba(148, 247, 255, 1);
+        border: 1px solid #003366;
+        color: #003366;
     }
     
     .canvas-container-button-save-image {
         background-color: #82E0AA;
+        border: 1px solid #4b7a47;
+        color: #4b7a47;
     }
     
     @media(max-width: 501px) {
@@ -75,7 +82,6 @@
             min-width: 300px;
             width: 100%;
             border: none;
-            /* width: auto; */
         }
         .canvasInstructions {
             font-size: 1.5em;
